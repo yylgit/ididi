@@ -1,6 +1,6 @@
 {
   "name": "fis-didi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "fis-didi.js",
   "bin": {
     "didi": "bin/didi",
@@ -20,12 +20,6 @@
   "author": "zhangnan05",
   "license": "BSD",
   "dependencies": {
-    "fis": "1.8.3",
-    "fis-parser-utc": "0.0.2",
-    "fis-parser-less": "0.1.0",
-    "fis-postprocessor-require-async": "0.0.8",
-    "fis-postpackager-autoload": "0.0.x",
-    "fis-lint-jshint": "0.0.4",
-    "fis-optimizer-html-minifier": "0.0.7"
+   
   }
 }
