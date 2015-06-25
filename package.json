@@ -1,0 +1,31 @@
+{
+  "name": "fis-didi",
+  "version": "0.0.1",
+  "main": "fis-didi.js",
+  "bin": {
+    "didi": "bin/didi",
+    "fis-didi": "bin/didi"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webzhangnan/fis-didi"
+  },
+  "keywords": [
+    "fis",
+    "didi"
+  ],
+  "author": "zhangnan05",
+  "license": "BSD",
+  "dependencies": {
+    "fis": "1.8.3",
+    "fis-parser-utc": "0.0.2",
+    "fis-parser-less": "0.1.0",
+    "fis-postprocessor-require-async": "0.0.8",
+    "fis-postpackager-autoload": "0.0.x",
+    "fis-lint-jshint": "0.0.4",
+    "fis-optimizer-html-minifier": "0.0.7"
+  }
+}
