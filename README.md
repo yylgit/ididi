@@ -4,10 +4,13 @@
 
 ### 安装
 - 安装nodejs
+ 
 ...
 - 安装php-cgi
+ 
 ...
 - 安装java
+ 
 ...
 - 安装fis-didi
 ``` bash
@@ -183,5 +186,3 @@ var pagePrams = {
 
 ## 更多使用细节
 http://fis.baidu.com/docs/api/fis-conf.html
-
-

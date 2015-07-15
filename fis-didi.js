@@ -103,6 +103,12 @@ var roadmap = [{
 		reg: '**tmpl',
 		useOptimizer: false,
 		release: false
+	},
+
+	{
+		reg: /.+?(css|png|jpeg|jpg|gif)$/,
+		release: '${releaseDir}$&',
 	}
+
 ]
 fis.config.set('roadmap.path', roadmap);
