@@ -69,12 +69,7 @@ var roadmap = [{
 		isMod: false,
 		release: 'test/$1.php'
 	},
-	//其他php不发布
-	{
-		reg: '**.php',
-		useCompile: false,
-		release: false
-	},
+	
 	//将main.html作为所在文件夹的名称发不到page目录下
 	{
 		reg: /\/page\/([^\/]+)\/main\.html/,

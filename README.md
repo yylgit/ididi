@@ -40,6 +40,7 @@ didi server start #开启一个本地http服务
 ``` bash
 didi release 
 ```
+猛击打开：http://127.0.0.1:8080/driver_register_edition/
 
 
 ## 发布到测试机环境
@@ -53,9 +54,35 @@ didi release -d test
 ``` bash
 sh build.sh '上线说明'
 ```
-支持一次开发发布多次。
-在当前文件`./filelist.txt`里面看到本次开发所有新增（需要上线）的文件。
+以上命令执行之后自动静态文件提交到对应的SVN目录（可配置），然后输出以下在huston需要上线的格式。
+``` 
+2015-07-16--01:31:25
 
+
+https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/page/driver_register_edition/main_2a3a2cd.js 112488
+https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_register_edition_86ef1c2.js 112488
+
+```
+- 支持一次开发发布多次。
+在当前目录下的文件`./filelist.txt`里面看到本次开发所有新增（需要上线）的文件。
+```
+
+2015-07-16--01:31:02
+
+
+https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/page/driver_register_edition/main_2a3a2cd.js 112488
+https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_register_edition_86ef1c2.js 112488
+
+
+
+
+
+2015-07-16--01:31:25
+
+
+https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/page/driver_register_edition/main_2a3a2cd.js 112488
+https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_register_edition_86ef1c2.js 112488
+```
 
 
 
