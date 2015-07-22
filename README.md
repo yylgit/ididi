@@ -40,13 +40,23 @@ didi server start #开启一个本地http服务
 ``` bash
 didi release 
 ```
-猛击打开：http://127.0.0.1:8080/driver_register_edition/
 
 
 ## 发布到测试机环境
 ```
 didi release -d test
 ```
+
+## 发布给QA测试
+
+编译
+
+``` bash
+sh build.sh test
+```
+
+提交output
+
 
 
 ## 发布上线
@@ -194,6 +204,49 @@ var pagePrams = {
 开头`_`的js文件或者文件夹(里面的js文件)不会作为模块化js组件发布
 - 前端模板预编译
 自动把了`underscore.js`的前端模板预编译，只需要把模板写进`tmpl`扩展名的文件里面，在JS里面通过`mytpl = __inline('./.underscore.tmpl')`，引进来使用即可。
+
+``` html
+<!--a.tmpl---->
+<div style="display:none" class="layer_box_card">
+	<img src="<%=img_src%>"/>
+</div>
+```
+
+``` javascript
+//main.js
+var a_tmpl = __inline('./a.tmpl');
+var a_tmpl_content = a_tmpl({
+	img_src: 'http://xxx.png'
+});
+```
+
+``` javascript
+// 发布后的main.js
+var a_tmpl = function(obj){
+	var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+	with(obj||{}){
+	__p+='<div style="display:none" class="layer_box_card">\n\t<img src="'+
+	((__t=(img_src))==null?'':__t)+
+	'"/>\n</div>';
+	}
+	return __p;
+};
+
+var a_tmpl_content = a_tmpl({
+	img_src: 'http://xxx.png'
+});
+
+/*
+* a_tmpl_content等于
+* <div style="display:none" class="layer_box_card">
+*	<img src="http://xxx.png"/>
+* </div>
+*
+*/
+
+```
+
+
 
 
 #### 如何将以前的页面移入
