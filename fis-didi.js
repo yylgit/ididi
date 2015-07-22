@@ -97,7 +97,8 @@ var roadmap = [{
 	{
 		reg: '**tmpl',
 		useOptimizer: false,
-		release: false
+		release: false,
+		isJsLike: true
 	},
 
 	{
