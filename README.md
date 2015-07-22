@@ -221,7 +221,7 @@ var a_tmpl_content = a_tmpl({
 ```
 
 ``` javascript
-// 发布后的main.js
+// 发布后的main.js 已经将a.tmpl预编译成一个函数
 var a_tmpl = function(obj){
 	var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 	with(obj||{}){
