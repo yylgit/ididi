@@ -258,7 +258,12 @@ var a_tmpl_content = a_tmpl({
 
 - 将非模块化的文件放在放在下划线开头的文件夹（或者lib文件夹）里面，或者以下划线命名，通过`inline`嵌入，或者使用以下形式声明
 ```
-@require xxx.js
+/*
+* @require xxx.js
+*
+*
+*
+*/
 ```
 模块化的文件使用`require`声明依赖
 
