@@ -2,7 +2,7 @@ var fis = module.exports = require('fis');
 
 fis.cli.name = 'fis-didi';
 fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
-
+fis.require.prefixes = ['didi', 'fis'];
 fis.config.merge({
     releaseDir: '/static/release/',
 	roadmap: {
