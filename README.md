@@ -99,6 +99,15 @@ https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_
 
 ## 功能
 
+#### 新增手机调试输出功能
+
+可以在手机页面打印错误日志，
+像Chrome devTool一样显示数组/对象的的内部属性详情
+```bash
+didi release --C
+```
+
+
 #### 自动同步/异步加载依赖的模块组件
 - 同步依赖语法
 ``` html 
