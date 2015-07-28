@@ -13,10 +13,14 @@
  
 ...
 - 安装fis-didi
+
 ``` bash
 npm install -g fis-didi
 ```
+
 遇到权限问题？
+
+
 ```
 sudo chown -R ${USER} /usr/local/lib/node_modules
 ```
@@ -27,22 +31,37 @@ didi -v
 
 ## 在本地环境测试
 - 执行初始化本地测试环境
+
 ``` bash
+
 didi server install rewrite #安装rewrite
+
 didi server install smarty  #安装smarty
-cd `didi server info | grep 'root=' | sed -E 's/root=(.+)/\1/' ` && git clone https://github.com/webzhangnan/fis-didi-server.git &&  mv fis-didi-server/* ./ && rm -rf fis-didi-server/ && cd - #安装其他
+
+cd `didi server info | grep 'root=' | sed -E 's/root=(.+)/\1/' ` && git clone https://github.com/webzhangnan/fis-didi-server.git &&  mv fis-didi-server/* ./ && rm -rf fis-didi-server/ && cd - 
+
+#安装其他
+
 ```
+
 - 开启本地测试环境
+
+
 ``` bash
 didi server start #开启一个本地http服务
 ``` 
+
+
 - 将项目发布到本地测试环境
+
 ``` bash
 didi release 
 ```
 
 
 ## 发布到测试机环境
+
+
 ```
 didi release -d test
 ```
@@ -50,6 +69,7 @@ didi release -d test
 ## 发布给QA测试
 
 编译
+
 
 ``` bash
 sh build.sh test
@@ -64,7 +84,10 @@ sh build.sh test
 ``` bash
 sh build.sh '上线说明'
 ```
+
 以上命令执行之后自动静态文件提交到对应的SVN目录（可配置），然后输出以下在huston需要上线的格式。
+
+
 ``` 
 2015-07-16--01:31:25
 
@@ -73,8 +96,12 @@ https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/page/driver
 https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_register_edition_86ef1c2.js 112488
 
 ```
+
+
 - 支持一次开发发布多次。
 在当前目录下的文件`./filelist.txt`里面看到本次开发所有新增（需要上线）的文件。
+
+
 ```
 
 2015-07-16--01:31:02
@@ -102,14 +129,17 @@ https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_
 #### 新增手机调试输出功能
 
 可以在手机页面打印错误日志，
-像Chrome devTool一样显示数组/对象的的内部属性详情
+像Chrome devTool一样折叠展开数组和对象的的内部属性详情
+
 ```bash
-didi release --C
+didi release -C
 ```
 
 
 #### 自动同步/异步加载依赖的模块组件
 - 同步依赖语法
+
+
 ``` html 
 <!--main.html-->
 <script>
@@ -136,7 +166,10 @@ var c_model = requrie('./c.js')
 require('./a.js')
 </script>
 ```
+
 - 异步依赖语法
+
+
 ``` js
 //a.js
 exports.show = function(){
@@ -145,10 +178,13 @@ exports.show = function(){
     });
 }
 ```
+
 以上代码`./b.js`不会被立刻加载，仅仅在执行到`require('./a.js').show()`时才会去异步加载`b.js`，如果`b.js`被直接打包到其他同步模块里面当然会顺便加载下来。
 
 #### 自由配置的打包策略
 如果可以通过`fis-conf.js`里面配置`a.js + b.js + c.js`打包成`c_b_a.js`则`main.html`自动引入`c_b_a.js`。
+
+
 ``` html 
 <!--main.html-->
 <script src="./c_b_a.js"></script>
@@ -159,20 +195,26 @@ require('./a.js')
 
 #### 模块化开发和非模块化兼容
 有很多JS模块是取自网上的开源组件，我不想浪费事件去改造，只想直接使用，`fis-didi`必然也会求同存异。
+
+
 ```
 //目录结构
 - _iscroll/iscroll_lite.js
 - a.js
 ```
+
 ```js
 /**
 * @require _iscroll/iscroll-lite.js
 **/
 new iScroll(document.body);
 ```
+
+
 在a.js里面使用到了`scroll`功能组件。
 
 #### 测试数据模拟
+
 ```html
 <!--/page/home/mian.html-->
 <script>
@@ -181,6 +223,7 @@ var pagePrams = {
 }
 </script>
 ```
+
 ```php
 /* /test/home/mian.php */
 <?php
@@ -189,7 +232,9 @@ var pagePrams = {
 	);
 ?>
 ```
+
 在`/page`和`/test`文件夹一一对应的关系，预览时效果如下
+
 ```html
 <!--/page/home/mian.html-->
 <script>
@@ -266,6 +311,8 @@ var a_tmpl_content = a_tmpl({
 - 将私用的js和公用的js分别移入`/page/文件名称/_rough`和`/lib`，并将js文佳引用分别改成`./_rough/xxx.js`和`/lib/xxx.js`
 
 - 将非模块化的文件放在放在下划线开头的文件夹（或者lib文件夹）里面，或者以下划线命名，通过`inline`嵌入，或者使用以下形式声明
+
+
 ```
 /*
 * @require xxx.js
@@ -274,6 +321,7 @@ var a_tmpl_content = a_tmpl({
 *
 */
 ```
+
 模块化的文件使用`require`声明依赖
 
 

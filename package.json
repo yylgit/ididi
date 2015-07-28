@@ -20,7 +20,7 @@
   "author": "zhangnan05",
   "license": "BSD",
   "dependencies": {
-    "didi-command-release": "^0.12.2",
+    "didi-command-release": ">=0.0.3",
     "fis": ">=1.8.3",
     "fis-parser-utc": ">=0.0.2",
     "fis-parser-less": ">=0.1.0",
