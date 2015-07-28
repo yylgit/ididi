@@ -126,6 +126,13 @@ https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_
 
 ## 功能
 
+
+#### 新增(weinre)[http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html]调试
+
+```
+didi release --weinre
+```
+
 #### 新增手机调试输出功能
 
 可以在手机页面打印错误日志，
