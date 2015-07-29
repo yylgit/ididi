@@ -106,5 +106,17 @@ var roadmap = [{
 		release: '${releaseDir}$&',
 	}
 
-]
-fis.config.set('roadmap.path', roadmap);
+];
+
+var smartyRoadmap = [
+	//将main.tpl作为所在文件夹的名称发布到template目录下
+	{
+		reg: /\/template\/([^\/]+)\/main\.tpl/,
+		release: 'template/$1.tpl'
+	}
+];
+
+fis.config.set('roadmap.path', roadmap.concat(smartyRoadmap) );
+
+
+
