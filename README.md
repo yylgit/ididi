@@ -251,9 +251,11 @@ var pagePrams = {
 </script>
 ```
 
-#### GET/POST请求模拟
+#### GET/POST请求反向代理
+例如将所有`/pinche/(.+)`反向代理到`http://test.diditaxi.com.cn/pinche/$1`
 
-#### 重定向支持
+#### URL模拟转发支持
+http://oak.baidu.com/fis-plus/document.html#%25E6%259C%25AC%25E5%259C%25B0%2520URL%2520%25E6%25A8%25A1%25E6%258B%259F%25E8%25BD%25AC%25E5%258F%2591
 
 #### codeigniter默认模板语法支持
 
