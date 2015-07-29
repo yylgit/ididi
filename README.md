@@ -252,13 +252,34 @@ var pagePrams = {
 ```
 
 #### GET/POST请求模拟
+
 #### 重定向支持
+
 #### codeigniter默认模板语法支持
-#### smarty语法支持准备ing
+
+支持本地预览codeigniter默认模板语法
+
+```
+/page/[page_name]/main.html
+```
+本地预览地址 http://${host}:${port}/page_name/
+
+#### smarty语法支持
+
+```
+/template/[page_name]/main.html
+```
+本地预览地址 http://${host}:${port}/smarty/page_name/
+
 
 #### 规范
-- 页面模板
+- codeigniter页面模板
 放到 `/page/[页面名]/main.html` 里，发布之后到达 `/page/[页面名称].html`
+
+- smarty页面模板
+放到 `/template/[页面名]/main.html` 里，发布之后到达 `/template/[页面名称].html`
+
+
 - 测试数据
 放在 `/test/[页面名/main.php`，页面模板关联映射。
 - 下划线`_`文件或者文件夹
