@@ -267,7 +267,7 @@ var pagePrams = {
 #### smarty语法支持
 
 ```
-/template/[page_name]/main.html
+/template/[page_name]/main.tpl
 ```
 本地预览地址 http://${host}:${port}/smarty/page_name/
 
@@ -277,7 +277,7 @@ var pagePrams = {
 放到 `/page/[页面名]/main.html` 里，发布之后到达 `/page/[页面名称].html`
 
 - smarty页面模板
-放到 `/template/[页面名]/main.html` 里，发布之后到达 `/template/[页面名称].html`
+放到 `/template/[页面名]/main.html` 里，发布之后到达 `/template/[页面名称].tpl`
 
 
 - 测试数据
