@@ -1,35 +1,32 @@
 # fis-didi
 
-基于 fis-didi 前端解决方案
+基于fis且适用于顺风车前端解决方案
 
-### 安装
-- 安装nodejs
- 
-...
-- 安装php-cgi
- 
-...
-- 安装java
- 
-...
+[TOC]
+
+## 安装
+- [安装nodejs](https://nodejs.org/)
+- [安装php-cgi](http://oak.baidu.com/fis-plus/document.html#%E5%AE%89%E8%A3%85%20php-cgi)
+- [安装java](http://oak.baidu.com/fis-plus/document.html#%E5%AE%89%E8%A3%85%20Java)
+
 - 安装fis-didi
-
 ``` bash
 npm install -g fis-didi
 ```
 
 遇到权限问题？
-
-
 ```
 sudo chown -R ${USER} /usr/local/lib/node_modules
 ```
+
 - 查看安装是否成功
 ``` bash
 didi -v
 ```
 
-## 在本地环境测试
+##使用
+
+### 在本地环境测试
 - 执行初始化本地测试环境
 
 ``` bash
@@ -41,7 +38,6 @@ didi server install smarty  #安装smarty
 cd `didi server info | grep 'root=' | sed -E 's/root=(.+)/\1/' ` && git clone https://github.com/webzhangnan/fis-didi-server.git &&  mv fis-didi-server/* ./ && rm -rf fis-didi-server/ && cd - 
 
 #安装其他
-
 ```
 
 - 开启本地测试环境
@@ -59,30 +55,27 @@ didi release
 ```
 
 
-## 发布到测试机环境
-
+### 发布到测试机环境
 
 ```
 didi release -d test
 ```
 
-## 发布给QA测试
+### 发布给QA测试
 
-编译
-
-
+- 编译
 ``` bash
 sh build.sh test
 ```
 
-提交output
+- 提交output
 
 
 
-## 发布上线
+### 发布上线
 
 ``` bash
-sh build.sh '上线说明'
+sh build.sh '上线说明' <user>
 ```
 
 以上命令执行之后自动静态文件提交到对应的SVN目录（可配置），然后输出以下在huston需要上线的格式。
@@ -126,14 +119,15 @@ https://svn.xiaojukeji.com/xiaoju/server/static/trunk/pinche/release/pkg/driver_
 
 ## 功能
 
+### 扩展功能
 
-#### 新增[weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html)调试
+#### [weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html)调试
 
-```
+``` bash
 didi release --weinre
 ```
 
-#### 新增手机调试输出功能
+#### 手机调试输出功能
 
 可以在手机页面打印错误日志，
 像Chrome devTool一样折叠展开数组和对象的的内部属性详情
@@ -274,7 +268,22 @@ http://oak.baidu.com/fis-plus/document.html#%25E6%259C%25AC%25E5%259C%25B0%2520U
 本地预览地址 http://${host}:${port}/smarty/page_name/
 
 
-#### 规范
+### 基础功能
+
+#### [资源定位](http://fex-team.github.io/fis-site/docs/more/fis-standard.html#资源定位)
+
+#### [内容切入](http://fex-team.github.io/fis-site/docs/more/fis-standard.html#内容嵌入)
+
+#### [依赖声明](http://fex-team.github.io/fis-site/docs/more/fis-standard.html#依赖声明)
+
+#### [资源打包合并](http://fex-team.github.io/fis-site/docs/beginning/getting-started.html#combine)
+
+#### [less支持](http://fex-team.github.io/fis-site/docs/beginning/assist.html)
+
+
+#### [更多功能插件扩展](http://fex-team.github.io/fis-site/docs/dev/plugin.html)
+
+## 规范
 - codeigniter页面模板
 放到 `/page/[页面名]/main.html` 里，发布之后到达 `/page/[页面名称].html`
 
@@ -333,7 +342,7 @@ var a_tmpl_content = a_tmpl({
 
 
 
-#### 如何将以前的页面移入
+#### 如何将以前的老页面移入
 - 新建文件夹`/page/文件名称/main.html`
 - 公用的css移入`/css`，同时将所移入的css里面引入的图片拷贝到`/img`文件夹下，并将图片文件引用改成/img/xxx.jpg
 - 将`/main.html`引入css的路径改成`/css/xxx.css`
@@ -357,4 +366,4 @@ var a_tmpl_content = a_tmpl({
 
 
 ## 更多使用细节
-http://fis.baidu.com/docs/api/fis-conf.html
+http://fex-team.github.io/fis-site/docs/beginning/getting-started.html
