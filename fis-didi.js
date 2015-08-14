@@ -4,7 +4,7 @@ fis.cli.name = 'fis-didi';
 fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
 fis.require.prefixes = ['didi', 'fis'];
 fis.config.merge({
-    releaseDir: '/static/release/',
+	releaseDir: '/static/release/',
 	roadmap: {
 		ext: {
 			html: 'html'
@@ -48,7 +48,7 @@ fis.config.merge({
 		rewrite: true,
 		libs: 'pc',
 		clean: {
-			exclude: "fisdata**,smarty**,rewrite**,index.php**,WEB-INF**,combo**,qasync**"
+			exclude: "fisdata**,smarty**,rewrite**,index.php**,WEB-INF**,combo**"
 		}
 	}
 });
@@ -69,7 +69,7 @@ var roadmap = [{
 		isMod: false,
 		release: 'test/$1.php'
 	},
-	
+
 	//将main.html作为所在文件夹的名称发不到page目录下
 	{
 		reg: /\/page\/([^\/]+)\/main\.html/,
@@ -83,7 +83,7 @@ var roadmap = [{
 		isMod: false,
 	}, {
 		// 下划线开头的文件，或者下划线开头的文件夹中的文件不作为mod处理，支持非模块化js，求同存异
-		reg: /(\/[^\/]+)*\/_[^\/]+(\/[^\/]+)*/,
+		reg: /(\/[^\/]+)*\/_[^\/]+(\/[^\/]+)*\.js$/,
 		release: '${releaseDir}$0',
 		isMod: false
 	},
@@ -116,7 +116,56 @@ var smartyRoadmap = [
 	}
 ];
 
-fis.config.set('roadmap.path', roadmap.concat(smartyRoadmap) );
 
+var componentsRoadmap = [
+	{
+		//component_modules文件夹下的css类型文件，以之后的后缀为id
+		reg: /^\/component_modules\/(.*)\.(styl|less|css)$/i,
+		id: '$1.css',
+		useSprite: true,
+		release: '${releaseDir}/$&'
+	}, 
+	//component_modules下的下划线开头的文件夹或者文件都不模块化包裹
+	{
+		reg: /^\/component_modules(\/[^\/]+)*\/_[^\/]+(\/[^\/]+)*\.js$/,
+		isMod: false,
+		release: '${releaseDir}$0',
+	}, 
+	//component_modules下面的js文件（其他地方会自动处理入口js文件），以之后的后缀为id
+	{
+		reg: /^\/component_modules\/(.*\.js)$/i,
+		id: '$1',
+		isMod: true,
+		release: '${releaseDir}/$&'
+	},
+	//component文件夹下的css类型文件，以之后的后缀为id
+	{
+		reg: /^\/components\/(.*)\.(styl|less|css)$/i,
+		id: '$1.css',
+		useSprite: true,
+		release: '${releaseDir}/$&'
+	}, 
+	//component文件夹下的入口js文件以模块名称作为id
+	{
+		reg: /^\/components\/([^\/]+)\/\1\.js$/i,
+		id: '$1',
+		isMod: true,
+		release: '${releaseDir}/$&'
+	},
+	//component下的下划线开头的文件夹或者文件都不模块化包裹
+	{
+		reg: /^\/components(\/[^\/]+)*\/_[^\/]+(\/[^\/]+)*\.js$/,
+		isMod: false,
+		release: '${releaseDir}$0',
+	}, 
+	//component_modules下面的其他js文件（入口js文件除外），以之后的后缀为id
+	{
+		reg: /^\/components\/(.*\.js)$/i,
+		id: '$1',
+		isMod: true,
+		release: '${releaseDir}/$&'
+	}
+];
 
-
+var roadmapPath = componentsRoadmap.concat(roadmap.concat(smartyRoadmap));
+fis.config.set('roadmap.path', roadmapPath);
