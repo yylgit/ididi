@@ -170,3 +170,4 @@ var componentsRoadmap = [
 
 var roadmapPath = componentsRoadmap.concat(roadmap.concat(smartyRoadmap));
 fis.config.set('roadmap.path', roadmapPath);
+
