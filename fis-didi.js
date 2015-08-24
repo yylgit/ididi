@@ -4,6 +4,7 @@ fis.cli.name = 'fis-didi';
 fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
 fis.cli.version = require('./version.js');
 fis.require.prefixes = ['didi', 'fis'];
+fis.cli.help.commands = [ 'release', 'install', 'server', 'init' ];
 fis.config.merge({
 	releaseDir: '/static/release/',
 	roadmap: {
