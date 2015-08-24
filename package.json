@@ -1,6 +1,6 @@
 {
   "name": "fis-didi",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "fis-didi.js",
   "bin": {
     "didi": "bin/didi",
@@ -24,11 +24,11 @@
     "didi-command-install": ">=0.0.1",
     "didi-command-server": ">=0.7.9",
     "didi-command-init": ">=0.0.1",
-    "fis": ">=1.8.3",
+    "fis": "1.9.25",
     "fis-parser-utc": ">=0.0.2",
     "fis-parser-less": ">=0.1.0",
-    "fis-postprocessor-require-async": ">=0.0.8",
-    "fis-postpackager-autoload": "0.0.x",
+    "fis-postprocessor-require-async": "0.0.9",
+    "fis-postpackager-autoload": "0.0.21",
     "fis-lint-jshint": ">=0.0.4",
     "fis-optimizer-html-minifier": ">=0.0.7"
   }

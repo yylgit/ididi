@@ -6,3 +6,7 @@
 # 美好的事情即将发生
 
 本次重大更新，敬请期待新文档
+
+## didi install
+## didi init
+## didi 
