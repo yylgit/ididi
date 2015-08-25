@@ -1,6 +1,6 @@
 {
   "name": "fis-didi",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "fis-didi.js",
   "bin": {
     "didi": "bin/didi",
