@@ -49,6 +49,7 @@ fis.config.merge({
 	server: {
 		rewrite: true,
 		libs: 'rewrite,smarty,webzhangnan/fis-didi-server',
+		type: 'php',
 		clean: {
 			exclude: "fisdata**,smarty**,rewrite**,index.php**,WEB-INF**,combo**"
 		}
