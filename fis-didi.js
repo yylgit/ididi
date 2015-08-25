@@ -172,4 +172,5 @@ var componentsRoadmap = [
 
 var roadmapPath = componentsRoadmap.concat(roadmap.concat(smartyRoadmap));
 fis.config.set('roadmap.path', roadmapPath);
-
+//不使用 preprocessor.component
+fis.config.set('modules.preprocessor', {});
