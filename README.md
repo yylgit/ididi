@@ -6,8 +6,6 @@
 
 <div class="toc"><div class="toc">
 <ul>
-<li><a href="#fis-didi">fis-didi</a></li>
-<li><a href="#fis-didi-文档">fis-didi 文档</a><ul>
 <li><a href="#快速开始">快速开始</a><ul>
 <li><a href="#安装didi">安装didi</a></li>
 <li><a href="#开始新项目">开始新项目</a></li>
