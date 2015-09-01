@@ -227,8 +227,20 @@ var dd = require('dd');
 
 - 工程模块
  
-例如工程模块a，被放在项目的`/comonents/`目录下
+例如工程模块a，被放在项目的`/compoents/`目录下
+
+
+```
+├── components
+│   ├── a
+│   │   ├── README.md
+│   │   ├── a.css
+│   │   ├── a.js
+│   │   └── component.json
+```
+
 `/components/a/a.js`
+
 ```javascript
 exports.name = '我是a模块';
 exports.sayName = function(){
@@ -252,8 +264,9 @@ didi install didi-component/dd
 
 可以使用`didi install`命令安装任何一个发布在[github](https://github.com)或者滴滴[GitLab](https://git.xiaojukeji.com)平台上，且符合component规范的模块包。
 
-- github：https://github.com/component
+以component为规范的groups
 - xiaojukeji GitLab: https://git.xiaojukeji.com/groups/didi-component
+- github：https://github.com/component
 
 #### 创建工程模块
 
@@ -315,12 +328,12 @@ git push -u origin master
 didi publish -t 0.0.2
 ```
 你可能看到以下类似输出信息，就代表发布成功啦。
-```
+```bash
 On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
-origin	https://git.xiaojukeji.com/zhangnan03/a.git (fetch)
-origin	https://git.xiaojukeji.com/zhangnan03/a.git (push)
+origin  https://git.xiaojukeji.com/zhangnan03/a.git (fetch)
+origin  https://git.xiaojukeji.com/zhangnan03/a.git (push)
 [master bebcd89] update new tag 0.0.2 use [didi publish]
  1 file changed, 2 insertions(+), 2 deletions(-)
 To https://git.xiaojukeji.com/didi-component/ddplayer.git
@@ -342,6 +355,89 @@ didi install zhangnan03/dd@0.01
 var dd = require('dd');
 dd.sayName();
 ```
+
+
+#### 工程模块类型
+
+工程模块可以是`JS`、`CSS`、JS+CSS+HTML混合模块。
+
+以下例子我们都使用`a`模块举例。
+
+#####  JS+CSS+HTML
+
+通过`didi init component`命令创建的模块，模块中包含与模块同名的`CSS`+`JS`+`HTML`文件。
+
+```javascript
+require('a')
+```
+当我们使用上面的语法调用时，`/component/a/a.js`和`/components/a/a.cs`被自动加载
+
+然后
+
+HTML文件只能嵌入使用
+
+`/page/pop/main.html`
+
+```
+<link rel="import" href="/components/a/a.html?__inline">
+```
+
+
+##### CSS+HTML
+如果你不需要JS文件，把`/components/a/a.js`删除了。这样模块变成纯CSS的模块啦。
+你可以在HTML文件里面使用这种语法载入
+```
+<!--
+    @require a/a.css
+-->
+```
+
+也可以在你的HTML使用到(依赖链上)JS/CSS文件里面
+```
+/**
+ * @require a/a.css
+ */
+```
+HTML文件同样只能同上使用嵌入语法使用。
+
+##### JS+HTML
+使用上和JS+CSS+HTML上没有区别。
+
+
+#### 生态模块类型
+生态模块以模块`component.json`的`main`字段所指文件（JS/CSS文件皆可）为入口。
+ 
+##### JS+CSS
+ 
+`/component_modules/didi-component-dd/dd.js`
+`/component_modules/didi-component-dd/dd.css`
+`/component_modules/didi-component-dd/component.json`
+
+`/component_modules/didi-component-dd/component.json`main字段的值`dd.js`，被依赖(require)时若存在`同文件夹`且`同名`的CSS也会被依赖，从而自动加载。
+```
+var dd = require('dd');
+```
+
+##### CSS
+`/component_modules/didi-component-dd/dd.css`
+`/component_modules/didi-component-dd/component.json`
+
+在HTML里面使用
+```html
+<!--
+    @require a/a.css
+-->
+```
+
+此时在你的HTML使用到(依赖链上)JS/CSS文件里面
+```js
+/**
+ * @require a
+ */
+```
+##### HTML+CSS+JS
+生态模块不建议使用HTML文件，而使用`tmpl`扩展名的模板文件替代。
+ 
 
 
 
