@@ -359,7 +359,7 @@ cd <project_root>
 didi init page
 ```
 创建`newpage`页面
-![Alt text](./1441091674383.png)
+![Alt text](https://cloud.githubusercontent.com/assets/3262834/9603625/7ca8a352-50e4-11e5-9618-3f72e22d22de.png)
 ```
 ├── page
 │   ├── newpage          //newpage页面文件夹
