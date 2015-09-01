@@ -313,6 +313,7 @@ cd components/a
 ```
 git init
 git add -A
+git remote add origin https://git.xiaojukeji.com/zhangnan03/a.git
 git commit -am 'first comment for didi-compnent'
 git push -u origin master
 ```
@@ -368,7 +369,7 @@ dd.sayName();
 通过`didi init component`命令创建的模块，模块中包含与模块同名的`CSS`+`JS`+`HTML`文件。
 
 ```javascript
-require('a')
+var a = require('a')
 ```
 当我们使用上面的语法调用时，`/component/a/a.js`和`/components/a/a.cs`被自动加载
 
@@ -384,7 +385,7 @@ HTML文件只能嵌入使用
 
 
 ##### CSS+HTML
-如果你不需要JS文件，把`/components/a/a.js`删除了。这样模块变成纯CSS的模块啦。
+- 如果你不需要JS文件，把`/components/a/a.js`删除了。这样模块变成纯CSS的模块啦。
 你可以在HTML文件里面使用这种语法载入
 ```
 <!--
@@ -393,12 +394,12 @@ HTML文件只能嵌入使用
 ```
 
 也可以在你的HTML使用到(依赖链上)JS/CSS文件里面
-```
+```javascript
 /**
  * @require a/a.css
  */
 ```
-HTML文件同样只能同上使用嵌入语法使用。
+- HTML文件同样只能同上使用嵌入语法使用。
 
 ##### JS+HTML
 使用上和JS+CSS+HTML上没有区别。
@@ -410,8 +411,11 @@ HTML文件同样只能同上使用嵌入语法使用。
 ##### JS+CSS
  
 `/component_modules/didi-component-dd/dd.js`
+
 `/component_modules/didi-component-dd/dd.css`
+
 `/component_modules/didi-component-dd/component.json`
+
 
 `/component_modules/didi-component-dd/component.json`main字段的值`dd.js`，被依赖(require)时若存在`同文件夹`且`同名`的CSS也会被依赖，从而自动加载。
 ```
@@ -419,17 +423,21 @@ var dd = require('dd');
 ```
 
 ##### CSS
+
 `/component_modules/didi-component-dd/dd.css`
+
 `/component_modules/didi-component-dd/component.json`
 
 在HTML里面使用
+
 ```html
 <!--
     @require a/a.css
 -->
 ```
 
-此时在你的HTML使用到(依赖链上)JS/CSS文件里面
+也可以你的HTML使用到(依赖链上)JS/CSS文件里面
+
 ```js
 /**
  * @require a
