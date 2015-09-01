@@ -22,13 +22,13 @@ sudo chown -R ${USER}  `npm config get prefix`/lib/
 ```bash
 didi -v
 ```
-![Alt text](./1441078501465.png)
+![Alt text](https://cloud.githubusercontent.com/assets/3262834/9603511/a044d5ac-50e3-11e5-86ee-25085ac2f4ed.png)
 ### 开始新项目
 
 ```bash
 didi init project
 ```
-![Alt text](./1441037518228.png)
+![Alt text](https://cloud.githubusercontent.com/assets/3262834/9603448/73b70b68-50e3-11e5-97b2-4caadec2fad0.png)
 
 ```
 ├── component.json          // 目前主要作用记录项目使用了哪些模块（由此命令安装：didi install <namespace>/<component name>）
@@ -93,7 +93,7 @@ didi release
 ```
 didi release -W
 ```
-![Alt text](./1441099020066.png)
+![Alt text](https://cloud.githubusercontent.com/assets/3262834/9603521/bc427732-50e3-11e5-8287-45cbe329ea7f.png)
 
 ### 代码压缩
 
@@ -435,10 +435,13 @@ didi release
 
 ## 相关链接
 
-[优雅didi心得-如何快速发布(deploy)到远端测试机](#)
-[优雅didi心得-如何轻松调试客户端Webview](#)
-[优雅didi心得-如何轻松发布的上线](#)
-[优雅didi心得-如何快速的线上调试](#)
+- [优雅didi心得-如何快速发布(deploy)到远端测试机](#)
+
+- [优雅didi心得-如何轻松调试客户端Webview](#)
+
+- [优雅didi心得-如何轻松发布的上线](#)
+
+- [优雅didi心得-如何快速的线上调试](#)
 
 
 
