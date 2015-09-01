@@ -3,6 +3,70 @@
 基于fis且适用于滴滴前端集成解决方案
 
 
+
+<div class="toc"><div class="toc">
+<ul>
+<li><a href="#fis-didi">fis-didi</a></li>
+<li><a href="#fis-didi-文档">fis-didi 文档</a><ul>
+<li><a href="#快速开始">快速开始</a><ul>
+<li><a href="#安装didi">安装didi</a></li>
+<li><a href="#开始新项目">开始新项目</a></li>
+<li><a href="#初始化本地预览服务器">初始化本地预览服务器</a></li>
+<li><a href="#启动本地预览服务器">启动本地预览服务器</a></li>
+<li><a href="#发布项目到本地预览服务器">发布项目到本地预览服务器</a></li>
+</ul>
+</li>
+<li><a href="#发布功能介绍">[发布]功能介绍</a><ul>
+<li><a href="#开启weinre调试功能">开启weinre调试功能</a></li>
+<li><a href="#代码压缩">代码压缩</a></li>
+<li><a href="#代码合并">代码合并</a></li>
+<li><a href="#代码监听修改自动发布">代码监听修改自动发布</a></li>
+<li><a href="#更多发布功能功能请查看帮助">更多[发布]功能功能请查看帮助</a></li>
+</ul>
+</li>
+<li><a href="#语言实现功能介绍">语言实现功能介绍</a><ul>
+<li><a href="#inline语法">__inline语法</a><ul>
+<li><a href="#预编译的前端模板">预编译的前端模板</a></li>
+</ul>
+</li>
+<li><a href="#模块化开发">模块化开发</a><ul>
+<li><a href="#require可以接受3种类型">require可以接受3种类型</a></li>
+</ul>
+</li>
+<li><a href="#模块生态">模块生态</a><ul>
+<li><a href="#创建工程模块">创建工程模块</a></li>
+<li><a href="#发布生态模块">发布生态模块</a></li>
+<li><a href="#工程模块类型">工程模块类型</a><ul>
+<li><a href="#jscsshtml">JS+CSS+HTML</a></li>
+<li><a href="#csshtml">CSS+HTML</a></li>
+<li><a href="#jshtml">JS+HTML</a></li>
+</ul>
+</li>
+<li><a href="#生态模块类型">生态模块类型</a><ul>
+<li><a href="#jscss">JS+CSS</a></li>
+<li><a href="#css">CSS</a></li>
+<li><a href="#htmlcssjs">HTML+CSS+JS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#页面开发">页面开发</a><ul>
+<li><a href="#一键创建页面">一键创建页面</a></li>
+</ul>
+</li>
+<li><a href="#总结">总结</a></li>
+<li><a href="#相关链接">相关链接</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+
 # fis-didi 文档
 
 [TOC]
