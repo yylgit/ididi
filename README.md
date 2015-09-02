@@ -330,7 +330,7 @@ didi install didi-component/dd
 可以使用`didi install`命令安装任何一个发布在[github](https://github.com)或者滴滴[GitLab](https://git.xiaojukeji.com)平台上，且符合component规范的模块包。
 
 以component为规范的groups
-- xiaojukeji GitLab: https://git.xiaojukeji.com/groups/didi-component
+- xiaojukeji GitLab: https://git.xiaojukeji.com/didi-component
 - github：https://github.com/component
 
 #### 创建工程模块
