@@ -2,10 +2,10 @@
 
 基于fis且适用于滴滴前端集成解决方案
 
-
-
 <div class="toc"><div class="toc">
 <ul>
+<li><a href="#fis-didi">fis-didi</a></li>
+<li><a href="#fis-didi-文档">fis-didi 文档</a><ul>
 <li><a href="#快速开始">快速开始</a><ul>
 <li><a href="#安装didi">安装didi</a></li>
 <li><a href="#开始新项目">开始新项目</a></li>
@@ -32,8 +32,14 @@
 </ul>
 </li>
 <li><a href="#模块生态">模块生态</a><ul>
+<li><a href="#工程模块">工程模块</a></li>
+<li><a href="#生态模块">生态模块</a></li>
 <li><a href="#创建工程模块">创建工程模块</a></li>
-<li><a href="#发布生态模块">发布生态模块</a></li>
+<li><a href="#发布生态模块">发布生态模块</a><ul>
+<li><a href="#创建一个仓库">创建一个仓库</a></li>
+<li><a href="#发布新版本">发布新版本</a></li>
+</ul>
+</li>
 <li><a href="#工程模块类型">工程模块类型</a><ul>
 <li><a href="#jscsshtml">JS+CSS+HTML</a></li>
 <li><a href="#csshtml">CSS+HTML</a></li>
@@ -63,11 +69,6 @@
 </div>
 
 
-
-
-# fis-didi 文档
-
-[TOC]
 
 ## 快速开始
 
@@ -283,22 +284,23 @@ var a = require('/page/pop/a.js')
 ```
 var dd = require('dd');
 ```
+
 ### 模块生态
 
 如上所述，`didi`的component模块可以有2种来源
 
-- 工程模块
+#### 工程模块
  
 例如工程模块a，被放在项目的`/compoents/`目录下
 
 
 ```
 ├── components
-│   ├── a
-│   │   ├── README.md
-│   │   ├── a.css
-│   │   ├── a.js
-│   │   └── component.json
+│   ├── a
+│   │   ├── README.md
+│   │   ├── a.css
+│   │   ├── a.js
+│   │   └── component.json
 ```
 
 `/components/a/a.js`
@@ -310,7 +312,8 @@ exports.sayName = function(){
 }
 ```
 
-- 生态模块
+#### 生态模块
+
 将会被安装在项目`/component_modules/`目录下
 
 ```bash
@@ -319,9 +322,9 @@ didi install didi-component/dd
 
 ```
 ├── component_modules
-│   └── didi-component-dd
-│       ├── component.json
-│       └── dd.js
+│   └── didi-component-dd
+│       ├── component.json
+│       └── dd.js
 ```
 
 可以使用`didi install`命令安装任何一个发布在[github](https://github.com)或者滴滴[GitLab](https://git.xiaojukeji.com)平台上，且符合component规范的模块包。
@@ -359,19 +362,21 @@ didi init component
 
 之后我们就可以发布一个新版本了，正如软件发包一样。
 
-- 创建一个仓库
+##### 创建一个仓库
 可以是任何groups的命名空间(namespace)
 例如在我的`zhangnan03`下创建仓库。
 ```
 https://git.xiaojukeji.com/zhangnan03/a.git
 ```
 
-- 进入a模块的根目录
+进入a模块的根目录
+
 ```
 cd components/a
 ```
 
-- 将模块提交到仓库
+将模块提交到仓库
+ 
 ```
 git init
 git add -A
@@ -379,9 +384,10 @@ git remote add origin https://git.xiaojukeji.com/zhangnan03/a.git
 git commit -am 'first comment for didi-compnent'
 git push -u origin master
 ```
+
 确认所有修改已经提交且推送到远程仓库。
 
-- 发布新版本
+##### 发布新版本
 
 通过`didi publish -t <version>`命令来发布模块
 `-t`是指定版本号
@@ -406,14 +412,19 @@ To https://git.xiaojukeji.com/didi-component/ddplayer.git
 ```
 
 其他人可以直接使用，以下命令来安装你的dd模块了
+
 ```
 didi install zhangnan03/dd
 ```
+
 其他人也可以指定安装某(如0.0.1)版本
+
 ```
 didi install zhangnan03/dd@0.01
 ```
+
 然后在JS项目里面如下使用
+
 ```
 var dd = require('dd');
 dd.sayName();
@@ -447,8 +458,10 @@ HTML文件只能嵌入使用
 
 
 ##### CSS+HTML
-- 如果你不需要JS文件，把`/components/a/a.js`删除了。这样模块变成纯CSS的模块啦。
+
+如果你不需要JS文件，把`/components/a/a.js`删除了。这样模块变成纯CSS的模块啦。
 你可以在HTML文件里面使用这种语法载入
+
 ```
 <!--
     @require a/a.css
@@ -461,7 +474,7 @@ HTML文件只能嵌入使用
  * @require a/a.css
  */
 ```
-- HTML文件同样只能同上使用嵌入语法使用。
+HTML文件同样只能同上使用嵌入语法使用。
 
 ##### JS+HTML
 使用上和JS+CSS+HTML上没有区别。
@@ -530,13 +543,13 @@ didi init page
 
 ```
 ├── page
-│   ├── newpage          //newpage页面文件夹
-│   │   ├── main.css    //newpage页面的CSS入口文件
-│   │   ├── main.html   //newpage页面的HTML文件
-│   │   └── main.js     //newpage页面的JS入口文件
+│   ├── newpage          //newpage页面文件夹
+│   │   ├── main.css    //newpage页面的CSS入口文件
+│   │   ├── main.html   //newpage页面的HTML文件
+│   │   └── main.js     //newpage页面的JS入口文件
 └── test
     ├── newpage
-    │   └── main.php
+    │   └── main.php
 ```
 首先来介绍`test/newpage/main.php`，这是在本地预览服务的数据模拟的。他负责模拟
 `/page/newpage/main.html`的数据。
@@ -603,14 +616,13 @@ didi release
 
 ## 相关链接
 
-- [优雅didi心得-如何快速发布(deploy)到远端测试机](#)
+- [优雅didi心得-如何快速发布(deploy)到远端测试机](http://fe.in.didialift.com:8088/fe/zhangnan03/receiver/receiver.md.html)
 
 - [优雅didi心得-如何轻松调试客户端Webview](#)
 
 - [优雅didi心得-如何轻松发布的上线](#)
 
 - [优雅didi心得-如何快速的线上调试](#)
-
 
 
 
