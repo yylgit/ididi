@@ -512,7 +512,7 @@ var dd = require('dd');
 
 ```html
 <!--
-    @require a/a.css
+    @require a
 -->
 ```
 
