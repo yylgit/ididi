@@ -2,6 +2,11 @@
 
 基于fis且适用于滴滴前端集成解决方案
 
+
+
+关键词：weinre调试、无线端console调试、压缩、打包、md5戳、加域名、csssprite、文件监听、自动刷新、测试、发布目录、自动上传、内置服务器、数据模拟、请求模拟、获取组件、资源定位、资源内嵌、依赖声明、模块化规范、模块化框架、模块化规范、静态资源表、前端模块化、组件化规范、组件仓库、组件生态、插件扩展、coffee|less|stylus|sass编译...
+
+
 <div class="toc"><div class="toc">
 <ul>
 <li><a href="#fis-didi">fis-didi</a></li>
