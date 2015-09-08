@@ -82,8 +82,10 @@
 npm i -g fis-didi
 ```
 MAC遇到权限问题？
+
+删除缓存目录，以后不要用`sudo`来执行`npm install`啦
 ```
-sudo chown -R ${USER}  `npm config get prefix`/lib/
+sudo rm -rf `npm config get cache`
 ```
 
 查看安装是否成功
