@@ -562,10 +562,11 @@ didi init page
 `/page/newpage/main.html`的数据。
 `main.html`默认是认为使用codeigniter的简单模板语法。
 
-如果想要使用`smarty`语法需要(如果使用者较多将会考虑增加`didi init page --type smarty`命令)
-- 创建`/template`文件夹
-- 并将`/page/newpage`文件夹移入`/template`文件夹`mv /page/newpage /template`。
-- 将`/template/newpage/main.html`改名`/template/newpage/main.tpl`
+如果想要使用`smarty`语法
+
+```
+didi init page --smarty
+```
 
 创建好的页面，发布一下(`didi release`)就可以看效果啦
 
