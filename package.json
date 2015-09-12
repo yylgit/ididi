@@ -1,6 +1,6 @@
 {
   "name": "fis-didi",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "main": "fis-didi.js",
   "bin": {
     "didi": "bin/didi",
@@ -23,7 +23,7 @@
     "didi-command-release": ">=0.0.3",
     "didi-command-install": ">=0.0.1",
     "didi-command-server": ">=0.7.9",
-    "didi-command-init": ">=0.0.1",
+    "didi-command-init": "0.0.9",
     "didi-command-publish": ">=0.0.1",
     "fis": "1.9.33",
     "fis-parser-utc": ">=0.0.2",
