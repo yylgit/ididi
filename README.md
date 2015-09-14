@@ -471,23 +471,25 @@ HTML文件只能嵌入使用
 
 ```
 <!--
-    @require a/a.css
+    @require a
 -->
 ```
 
 也可以在你的HTML使用到(依赖链上)JS/CSS文件里面
 ```javascript
 /**
- * @require a/a.css
+ * @require a
  */
 ```
 HTML文件同样只能同上使用嵌入语法使用。
 
 ##### JS+HTML
-使用上和JS+CSS+HTML上没有区别。
+
+使用上和JS+CSS+HTML上并没有区别。
 
 
 #### 生态模块类型
+
 生态模块以模块`component.json`的`main`字段所指文件（JS/CSS文件皆可）为入口。
  
 ##### JS+CSS
@@ -526,6 +528,7 @@ var dd = require('dd');
  */
 ```
 ##### HTML+CSS+JS
+
 生态模块不建议使用HTML文件，而使用`tmpl`扩展名的模板文件替代。
  
 
@@ -572,6 +575,18 @@ didi init page --smarty
 
 - /page/newpage/main.html : http://127.0.0.1:8080/newpage/
 - /template/newpage/main.tpl : http://127.0.0.1:8080/smarty/newpage/
+
+
+
+
+
+## 资源依赖的作用
+
+在fis-didi里面
+
+
+
+
 
 ## 总结
 恭喜你，看到这里你已经基本掌握了`didi`的基本日常使用啦。
