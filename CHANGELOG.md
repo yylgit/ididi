@@ -1,3 +1,8 @@
+
+## 0.2.8 
+
+repair bugs
+
 ## 0.2.8 
 
 - 新增`didi init page --smarty`

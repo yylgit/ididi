@@ -57,39 +57,7 @@ function HTML(content, file){
         } else if ($3) { // <style>
             m = $3 + exports.CSS($4, file);
         } else if ($5) { // <img|embed|audio|video|link|object|source>
-            var tag = $5.toLowerCase();
-            if (tag === 'link') {
-                var inline, isCssLink = false, isImportLink = false;
-                var result = m.match(/\srel\s*=\s*('[^']+'|"[^"]+"|[^\s\/>]+)/i);
-                if (result && result[1]) {
-                    var rel = result[1].replace(/^['"]|['"]$/g, '').toLowerCase();
-                    isCssLink = rel === 'stylesheet';
-                    isImportLink = rel === 'import';
-                }
-                m = m.replace(/(\s(?:data-)?href\s*=\s*)('[^']+'|"[^"]+"|[^\s\/>]+)/ig, function (_, prefix, value) {
-                    if ((isCssLink || isImportLink) && fis.compile.isInline(fis.util.query(value))) {
-                        if (isCssLink) {
-                            inline = '<style' + m.substring(5).replace(/\/(?=>$)/, '').replace(/\s+(?:charset|href|data-href|hreflang|rel|rev|sizes|target)\s*=\s*(?:'[^']+'|"[^"]+"|[^\s\/>]+)/ig, '');
-                            inline += resolve(value, file, '.css');
-                            inline += '</style>';
-                        } else {
-                            inline = resolve(value, file);
-                        }
-                        return '';
-                    } else {
-                        return prefix + resolve(value, file);
-                    }
-                });
-                m = inline || m;
-            } else if (tag === 'object') {
-                m = m.replace(/(\sdata\s*=\s*)('[^']+'|"[^"]+"|[^\s\/>]+)/ig, function (m, prefix, value) {
-                    return prefix + resolve(value, file);
-                });
-            } else {
-                m = m.replace(/(\s(?:data-)?src\s*=\s*)('[^']+'|"[^"]+"|[^\s\/>]+)/ig, function (m, prefix, value) {
-                    return prefix + resolve(value, file);
-                });
-            }
+
         } else if ($6) {
             m = resolve($6, file);
         } else if ($7) {
@@ -110,38 +78,38 @@ function trim(str) {
 var path = require('path');
 var projectSource;
 function resolve(id, ref, ext) {
-	var originId = id;
-	id = trim(id);
-	if(projectSource === undefined){
-		projectSource = fis.project.getSource();
-	}
-	// a.js
-	if(id.match(/\.[a-z]+$/i)){
-		return originId;
-	}
+    var originId = id;
+    id = trim(id);
+    if(projectSource === undefined){
+        projectSource = fis.project.getSource();
+    }
+    // a.js
+    if(id.match(/\.[a-z]+$/i)){
+        return originId;
+    }
     if(!ext){
         return originId;
     }
-	ext = 'string' === typeof ext ? [ext] : ext;
-	var subPath;
-	for(var i =0 , strExt; i < ext.length; i++){
-		strExt = ext[i];
-		subPath = id + strExt;
-		// /xx/xx/a.js
-		if( id[0] === '/' && projectSource[subPath] ){
-			return originId.replace(id, subPath);
-		}
-		// ./ || aa
-		subPath = path.join(ref.subdirname , id + strExt);
-		if( projectSource[subPath] ){
-			return originId.replace(id, subPath);
-		}
-		subPath = '/components/' + id + '/' + id + strExt;
-		if(id.match(/\w+/) &&  projectSource[subPath] ){
-			return originId.replace(id, subPath);
-		}
-	}
-	return originId;
+    ext = 'string' === typeof ext ? [ext] : ext;
+    var subPath;
+    for(var i =0 , strExt; i < ext.length; i++){
+        strExt = ext[i];
+        subPath = id + strExt;
+        // /xx/xx/a.js
+        if( id[0] === '/' && projectSource[subPath] ){
+            return originId.replace(id, subPath);
+        }
+        // ./ || aa
+        subPath = path.join(ref.subdirname , id + strExt);
+        if( projectSource[subPath] ){
+            return originId.replace(id, subPath);
+        }
+        subPath = '/components/' + id + '/' + id + strExt;
+        if(id.match(/\w+/) &&  projectSource[subPath] ){
+            return originId.replace(id, subPath);
+        }
+    }
+    return originId;
 }
 exports.CSS = CSS;
 exports.JS = JS;
