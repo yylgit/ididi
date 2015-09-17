@@ -149,11 +149,24 @@ var smartyRoadmap = [
 		reg: /\/template\/([^\/]+)\/main\.tpl/,
 		isMod: true,
 		release: 'template/$1.tpl'
+	},
+	{
+		reg: "smarty.conf"
 	}
 ];
 
 
 var roadmapPath = componentsRoadmap.concat(roadmap.concat(smartyRoadmap));
+
+
+
+
+var argv = process.argv;
+var isPreview = !(~argv.indexOf('-d') || ~argv.indexOf('--dest'));
+// auto generate smarty.conf
+if (isPreview) {
+    postpackager.push(require('./plugin/postpackager/smarty-config.js'));
+}
 
 
 // fis.config.set('roadmap.path', roadmapPath);
