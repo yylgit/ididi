@@ -23,7 +23,11 @@ function CSS(content, file){
     });
 }
 function JS(content, file){
-    return !file.isMod ? content : fis.compile.extJs(content, function (m, comment, type, value) {
+    if(!file.isMod){
+        return content;
+    }
+    content = parseJsAync(content, file);
+    return fis.compile.extJs(content, function (m, comment, type, value) {
         if (type && value) {
             m = type + '(' + resolve(value, file, '.js') + ')';
         } else if (comment) {
@@ -36,7 +40,6 @@ function JS(content, file){
 }
 function HTML(content, file){
     return !file.isMod ? content : fis.compile.extHtml(content, function (m, $1, $2, $3, $4, $5, $6, $7, $8) {
-        debugger
         if ($1) { // <script>
             var embed;
             $1 = $1.replace(/(\s(?:data-)?src\s*=\s*)('[^']+'|"[^"]+"|[^\s\/>]+)/ig, function (m, prefix, value) {
@@ -61,7 +64,6 @@ function HTML(content, file){
         } else if ($6) {
             m = resolve($6, file);
         } else if ($7) {
-                debugger;
             m = '<!--' + fis.compile.analyseComment($7, function (m, prefix, value) {
                 return prefix + resolve(value, file, ['.css', '.js']);
             }) + $8;
@@ -101,6 +103,7 @@ function resolve(id, ref, ext) {
         }
         // ./ || aa
         subPath = path.join(ref.subdirname , id + strExt);
+        subPath = fis.util(subPath);
         if( projectSource[subPath] ){
             return originId.replace(id, subPath);
         }
@@ -110,6 +113,50 @@ function resolve(id, ref, ext) {
         }
     }
     return originId;
+}
+
+
+function parseJsAync(content, file){
+    var reg = /"(?:[^\\"\r\n\f]|\\[\s\S])*"|'(?:[^\\'\n\r\f]|\\[\s\S])*'|(\/\/[^\r\n\f]+|\/\*[\s\S]+?(?:\*\/|$))|\b(require\.async|require)\s*\(\s*("(?:[^\\"\r\n\f]|\\[\s\S])*"|'(?:[^\\'\n\r\f]|\\[\s\S])*'|\[[\s\S]*?\])\s*/g;
+    return content.replace(reg, function(m, comment, type, value){
+        if(type){
+            switch (type){
+                case 'require.async':
+                    var res = parseJsAsyncValue(file, value);
+                    if (res.hasBrackets) {
+                        m = 'require.async([' + res.values.join(', ') + ']';
+                    } else {
+                        m = 'require.async(' + res.values.join(', ');
+                    }
+                    break;
+                case 'require':
+                    break;
+            }
+        } else if (comment) {
+           
+        }
+        return m;
+    });
+}
+function parseJsAsyncValue(file, value){
+    var hasBrackets = false;
+    var values = [];
+    value = value.trim().replace(/(^\[|\]$)/g, function(m, v) {
+        if (v) {
+            hasBrackets = true;
+        }
+        return '';
+    });
+    values = value.split(/\s*,\s*/);
+    values = values.map(function(v) {
+        var ret = resolve(v, file, '.js');
+        return ret;
+    });
+
+    return {
+        values: values,
+        hasBrackets: hasBrackets
+    };
 }
 exports.CSS = CSS;
 exports.JS = JS;
