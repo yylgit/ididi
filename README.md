@@ -165,7 +165,7 @@ didi release
 
 ## [发布]功能介绍
 
-### 开启[weinre](people.apache.org/~pmuellr/weinre/docs/latest/)调试功能
+### 开启[weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/)调试功能
 
 ```
 didi release -W
