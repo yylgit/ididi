@@ -1,5 +1,7 @@
 # fis-didi
 
+[![NPM](https://nodei.co/npm/fis-didi.png?downloads=true)](https://nodei.co/npm/fis-didi/)
+
 基于fis且适用于滴滴前端集成解决方案
 
 ## 为什么使用fis-didi
