@@ -17,7 +17,7 @@
     "fis",
     "didi"
   ],
-  "author": "MicroConan",
+  "author": "webzhangnan@gmail.com",
   "license": "BSD",
   "dependencies": {
     "didi-command-release": ">=0.0.3",

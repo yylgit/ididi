@@ -1,3 +1,28 @@
+## 0.5.1
+
+- 判断`token`是否符合规则
+
+- 新增 `install --token` 命令
+
+	```
+	didi install --token RZTer_CSK6-nfUK-MT6i
+	```
+	
+	解决 `Reset Private token` 之后无法下载的问题
+
+- 升级 fis 到最新版本
+
+ 解决新版本 nodejs 无法压缩 png 的问题
+
+- didi server start 启动后的主页，显示 didi 的文档
+
+- 支持给 script 添加属性，添加例如 crossorigin 属性
+
+ 可以用于 `wf` 组件发送报错信息(onerrof 事件可以接收到错误信息)
+
+- 添加 `install --clean` 命令
+
+	允许清除缓存的安装文件
 
 ## 0.2.8 
 
