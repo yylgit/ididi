@@ -18,7 +18,7 @@
 
 - 支持给 script 添加属性，添加例如 crossorigin 属性
 
- 可以用于 `wf` 组件发送报错信息(onerrof 事件可以接收到错误信息)
+ 可以用于 `wf` 组件发送报错信息(onerror 事件可以接收到错误信息)
 
 - 添加 `install --clean` 命令
 
