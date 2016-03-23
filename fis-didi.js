@@ -83,10 +83,19 @@ var componentsRoadmap = [
 ];
 
 
-var roadmap = [{
+var roadmap = [
+	// 配置本地 url 模拟转发
+	{
 		reg: 'rewrite.conf',
 		release: '/server-conf/rewrite.conf'
-	}, {
+	},
+	// mock 数据文件夹
+	{
+		reg: '/mock/**',
+		useCompile: false,
+		release: '$&'
+	},
+	{
 		reg: 'proxy.php',
 		useCompile: false,
 		release: '/proxy.php'
