@@ -148,7 +148,12 @@ var roadmap = [
 	{
 		reg: /.+?(png|jpeg|jpg|gif)$/,
 		release: '${releaseDir}$&',
-	}
+	},
+	//字体发布
+	{
+		reg: /.+\.(svg|eot|ttf|woff)$/,
+		release: "${releaseDir}/$&"
+	},
 
 ];
 
