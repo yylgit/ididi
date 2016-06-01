@@ -1,3 +1,8 @@
+## 0.6.5
+`didi preview create`
+`didi preview open`
+新增preview功能，自动生成页面列表，并生成页面预览。
+
 ## 0.6.0
 `didi release -o`
 所有的被引用的ttf文件自动压缩：根据CSS文件样式所匹配的DOM元素，自动抽取该DOM元素里面的文字，产生缩减版本字体文件。
