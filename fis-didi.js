@@ -4,7 +4,7 @@ fis.cli.name = 'fis-didi';
 fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
 fis.cli.version = require('./version.js');
 fis.require.prefixes = ['didi', 'fis'];
-fis.cli.help.commands = [ 'release', 'install', 'server', 'init' ];
+fis.cli.help.commands = [ 'release', 'install', 'server', 'init', 'preview' ];
 var releaseDir = '/static/release/';
 var parser = {
 	//.tmpl后缀的文件使用fis-parser-utc插件编译
@@ -22,7 +22,7 @@ var spriter = 'csssprites';
 var optimizer = {tpl: 'html-minifier'};
 var server = {
 	rewrite: true,
-	libs: 'rewrite,smarty,webzhangnan/fis-didi-server',
+	libs: 'rewrite,smarty,beatles-team/fis-didi-server',
 	type: 'php',
 	clean: {
 		exclude: "fisdata**,smarty**,rewrite**,index.php**,WEB-INF**,combo**"
