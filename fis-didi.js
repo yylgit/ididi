@@ -17,7 +17,7 @@ var postprocessor = {
 	html: "require-async",
 	tpl: "require-async",
 };
-var postpackager = ['autoload', 'fontmin'];
+var postpackager = ['autoload'];
 var spriter = 'csssprites';
 var optimizer = {tpl: 'html-minifier'};
 var server = {
