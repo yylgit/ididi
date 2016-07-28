@@ -38,13 +38,13 @@ var componentsRoadmap = [
 		useSprite: true,
 		isMod: true,
 		release: '${releaseDir}/$&'
-	}, 
+	},
 	//component_modules下的下划线开头的文件夹或者文件都不模块化包裹
 	{
 		reg: /^\/component_modules(\/[^\/]+)*\/_[^\/]+(\/[^\/]+)*\.js$/,
 		isMod: false,
 		release: '${releaseDir}$0',
-	}, 
+	},
 	//component_modules下面的js文件（其他地方会自动处理入口js文件），以之后的后缀为id
 	{
 		reg: /^\/component_modules\/(.*\.js)$/i,
@@ -59,7 +59,7 @@ var componentsRoadmap = [
 		useSprite: true,
 		isMod: true,
 		release: '${releaseDir}/$&'
-	}, 
+	},
 	//component文件夹下的入口js文件以模块名称作为id
 	{
 		reg: /^\/components\/([^\/]+)\/\1\.js$/i,
@@ -72,7 +72,7 @@ var componentsRoadmap = [
 		reg: /^\/components(\/[^\/]+)*\/_[^\/]+(\/[^\/]+)*\.js$/,
 		isMod: false,
 		release: '${releaseDir}$0',
-	}, 
+	},
 	//component_modules下面的其他js文件（入口js文件除外），以之后的后缀为id
 	{
 		reg: /^\/components\/(.*\.js)$/i,
@@ -144,7 +144,7 @@ var roadmap = [
 		release: false,
 		isJsLike: true
 	},
-	
+
 	{
 		reg: /.+?(png|jpeg|jpg|gif)$/,
 		release: '${releaseDir}$&',
