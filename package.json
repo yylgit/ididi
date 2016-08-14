@@ -1,27 +1,28 @@
 {
-  "name": "fis-didi",
-  "version": "0.6.8",
-  "main": "fis-didi.js",
+  "name": "ididi",
+  "version": "1.0.0",
+  "main": "ididi.js",
   "bin": {
     "didi": "bin/didi",
-    "fis-didi": "bin/didi"
+    "ididi": "bin/didi"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/beatles-team/fis-didi"
+    "url": "https://github.com/beatles-team/ididi"
   },
   "keywords": [
     "fis",
-    "didi"
+    "didi",
+    "ididi"
   ],
   "author": "webzhangnan@gmail.com",
   "license": "BSD",
   "dependencies": {
     "didi-command-release": ">=0.0.3",
-    "didi-command-install": "0.1.4",
+    "didi-command-install": "0.1.6",
     "didi-command-server": ">=0.7.9",
     "didi-command-init": "0.0.9",
     "didi-command-publish": ">=0.0.1",

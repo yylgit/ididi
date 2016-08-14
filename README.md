@@ -1,10 +1,10 @@
-# fis-didi
+# ididi
 
-[![NPM](https://nodei.co/npm/fis-didi.png?downloads=true)](https://nodei.co/npm/fis-didi/)
+[![NPM](https://nodei.co/npm/ididi.png?downloads=true)](https://nodei.co/npm/ididi/)
 
 基于fis且适用于滴滴前端集成解决方案
 
-## 为什么使用fis-didi
+## 为什么使用ididi
 
 - 从开发流程&效率层面：从开发、测试到上线全面规范前端开发流程,提升开发效率，让fe专注开发。
 - 从生产力层面：基于git提供模块按版本发布、安装，让前端组件可以积累、共享，减少生产力浪费。
@@ -20,7 +20,7 @@ weinre调试、无线端console调试、压缩、打包、md5戳、加域名、c
 
 ### 安装didi
 ```
-npm i -g fis-didi
+npm i -g ididi
 ```
 MAC遇到权限问题？
 
@@ -43,14 +43,14 @@ didi init project
 
 ```
 ├── component.json          // 目前主要作用记录项目使用了哪些模块（由此命令安装：didi install <namespace>/<component name>）
-├── fis-conf.js             // fis-didi的配置文件
+├── fis-conf.js             // ididi的配置文件
 ├── css                       // 项目的基础css文件
 │   └── lib.css             // 基础HTML文件
 ├── img                     // 基础图片文件
 │   └── didi.png
 ├── lib                     // 基础JS文件，主意里面文件都是 非模块化文件
 │   ├── lib.js              // 负责将其他文件内嵌进来
-│   ├── mod.js              // 模块加载器，配合fis-didi的发布来实现模块化
+│   ├── mod.js              // 模块加载器，配合ididi的发布来实现模块化
 │   └── zepto.js            // 号称移动端的jquery
 ├── page                    // 页面根目录
 │   └── pop                 // 示例页面文件夹
@@ -206,7 +206,7 @@ page/pop
   font-family: 'xiaofeng';
   src: url('xiaofeng.eot');
   src:
-    url('xiaofeng.eot?#fis-didi') format('embedded-opentype'),
+    url('xiaofeng.eot?#ididi') format('embedded-opentype'),
     url('xiaofeng.woff') format('woff'),
     url('xiaofeng.ttf') format('truetype'),
     url('xiaofeng.svg') format('svg');
@@ -654,7 +654,7 @@ didi init page --smarty
 
 ## 资源依赖的作用
 
-在fis-didi里面
+在ididi里面
 
 
 
