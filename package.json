@@ -1,6 +1,6 @@
 {
   "name": "ididi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "ididi.js",
   "bin": {
     "didi": "bin/didi",
@@ -22,9 +22,9 @@
   "license": "BSD",
   "dependencies": {
     "didi-command-release": ">=0.0.3",
-    "didi-command-install": "0.1.6",
+    "didi-command-install": "0.1.8",
     "didi-command-server": ">=0.7.9",
-    "didi-command-init": "0.0.9",
+    "didi-command-init": "0.1.1",
     "didi-command-publish": ">=0.0.1",
     "fis": "1.10.1",
     "didi-command-preview": ">=0.0.7",
