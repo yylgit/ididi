@@ -1,6 +1,6 @@
 {
   "name": "ididi",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "ididi.js",
   "bin": {
     "didi": "bin/didi",
