@@ -22,7 +22,7 @@ var spriter = 'csssprites';
 var optimizer = {tpl: 'html-minifier'};
 var server = {
 	rewrite: true,
-	libs: 'rewrite,smarty,beatles-team/fis-didi-server',
+	libs: 'rewrite,smarty,didi-component/didi-server',
 	type: 'php',
 	clean: {
 		exclude: "fisdata**,smarty**,rewrite**,index.php**,WEB-INF**,combo**"
