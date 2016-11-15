@@ -1,6 +1,6 @@
 {
   "name": "ididi",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "main": "ididi.js",
   "bin": {
     "didi": "bin/didi",
@@ -22,12 +22,12 @@
   "license": "BSD",
   "dependencies": {
     "didi-command-init": "^0.1.2",
-    "didi-command-install": "^0.1.9",
+    "didi-command-install": "^0.2.0",
     "didi-command-preview": ">=0.0.7",
     "didi-command-publish": ">=0.0.1",
     "didi-command-release": "0.0.12",
     "didi-command-server": "0.8.0",
-    "didi-postpackager-autoload": "0.1.3",
+    "didi-postpackager-autoload": "0.1.4",
     "fis": "1.10.1",
     "fis-lint-jshint": "0.0.10",
     "fis-optimizer-html-minifier": ">=0.0.7",
